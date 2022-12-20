@@ -15,8 +15,7 @@ export class AppComponent {
   public items : [string,string][]=[];  
   
   ngOnInit() {
-    this.signalRService.connection.start().then(() => console.log("Connection started!"));
-    this.signalRService.connection.on("ReceiveMessage", (user, message) => { 
+    this.signalRService.connection.on("ReceiveMessage", (user: string, message: string) => { 
       this.items.push([user,message]);
       console.log(`received message, user: ${user}  message: ${message}`);
     });
